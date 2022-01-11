@@ -5,6 +5,6 @@ namespace WebApi.Application.Interfaces;
 
 public interface IWebApiDbContext
 {
-    DbSet<Person> Notes { get; set; }
+    DbSet<Person> People { get; set; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

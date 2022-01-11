@@ -7,7 +7,7 @@ namespace WebApi.Persistence;
 
 public class WebApiDbContext : DbContext, IWebApiDbContext
 {
-    public DbSet<Person> Notes { get; set; }
+    public DbSet<Person> People { get; set; }
 
     public WebApiDbContext(DbContextOptions<WebApiDbContext> options)
         : base(options) { }

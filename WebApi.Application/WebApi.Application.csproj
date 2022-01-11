@@ -8,11 +8,15 @@
 
   <ItemGroup>
     <Folder Include="Common\Mappings\" />
+    <Folder Include="Common\Exceptions\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="People\Commands\CreatePerson\" />
+    <Folder Include="People\Queries\GetPeopleNames\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
   </ItemGroup>
 
