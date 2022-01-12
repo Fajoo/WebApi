@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using WebApi.Api.Middleware;
+using WebApi.Api.Services;
 using WebApi.Application;
 using WebApi.Application.Common.Mappings;
 using WebApi.Application.Interfaces;
@@ -59,6 +60,9 @@ public class Startup
             ConfigureSwaggerOptions>();
         services.AddSwaggerGen();
         services.AddApiVersioning();
+
+        services.AddSingleton<ICurrentUserService, CurrentUserService>();
+        services.AddHttpContextAccessor();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
