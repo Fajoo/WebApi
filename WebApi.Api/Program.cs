@@ -22,7 +22,8 @@ namespace WebApi.Api;
                 try
                 {
                     var context = serviceProvider.GetRequiredService<WebApiDbContext>();
-                    DbInitializer.Initialize(context);
+                    var initializer = new DbInitializer(serviceProvider.GetRequiredService<ILogger<DbInitializer>>());
+                    initializer.Initialize(context);
                 }
                 catch (Exception exception)
                 {
@@ -35,7 +36,11 @@ namespace WebApi.Api;
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog()
+                .UseSerilog((context, configuration) => configuration
+                        .Enrich.FromLogContext()
+                        .MinimumLevel.Information()
+                        .WriteTo.Console(),
+                    preserveStaticLogger: true)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

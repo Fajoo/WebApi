@@ -13,7 +13,8 @@ public static class DependencyInjection
         var connectionString = configuration["DbConnection"];
         services.AddDbContext<WebApiDbContext>(options =>
         {
-            options.UseSqlite(connectionString);
+            options.UseSqlite(connectionString,
+                b => b.MigrationsAssembly(typeof(DependencyInjection).Assembly.FullName));
         });
         services.AddScoped<IWebApiDbContext>(provider =>
             provider.GetService<WebApiDbContext>());
