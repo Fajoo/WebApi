@@ -1,0 +1,25 @@
+  
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "https://github.com/Fajoo",
+  "classifications": [ "Solution/WebApi" ], 
+  "name": "WebApi Full proj",
+  "identity": "apifull",         
+  "groupIdentity":"WebApi",
+  "shortName": "apifull",
+  "tags": {
+    "language": "C#",
+    "type":"project"
+  },
+  "sourceName": "WebApi",
+  "preferNameDirectory": true,
+   "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [ "register.bat", "unregister.bat", "**/wwwroot/**", "**/bin/**", "**/obj/**", "**/.vs/**", "**/_ReSharper.Caches/**", "**/.git/**" ]
+        }
+      ]
+    }
+  ]
+}
