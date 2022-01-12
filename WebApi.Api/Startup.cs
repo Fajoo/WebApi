@@ -63,6 +63,9 @@ public class Startup
 
         services.AddSingleton<ICurrentUserService, CurrentUserService>();
         services.AddHttpContextAccessor();
+
+        services.AddHealthChecks()
+            .AddSqlite(Configuration["DbConnection"]);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,6 +100,8 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
+
+            endpoints.MapHealthChecks("/health");
         });
     }
 }
