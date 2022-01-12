@@ -27,5 +27,9 @@ git clone https://github.com/Fajoo/WebApi-Template
 ```xaml
 dotnet new apifull
 ```
+💁🏼 Support
+----
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/fajo)
+
 ## ⚖️ LICENSE
 The [Unlicense](https://github.com/Fajoo/WebApi-Template/blob/master/LICENSE)
