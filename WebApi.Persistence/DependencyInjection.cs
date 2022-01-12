@@ -5,8 +5,17 @@ using WebApi.Application.Interfaces;
 
 namespace WebApi.Persistence;
 
+/// <summary>
+/// Service class for injecting database layer dependency
+/// </summary>
 public static class DependencyInjection
 {
+    /// <summary>
+    /// Extension method for dependency injection
+    /// </summary>
+    /// <param name="services">Service collection</param>
+    /// <param name="configuration">Application configuration</param>
+    /// <returns>ServiceCollection return</returns>
     public static IServiceCollection AddPersistence(this IServiceCollection
         services, IConfiguration configuration)
     {

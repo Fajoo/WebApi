@@ -3,6 +3,9 @@ using Microsoft.Extensions.Logging;
 
 namespace WebApi.Persistence;
 
+/// <summary>
+/// Utility class for database initialization
+/// </summary>
 public sealed class DbInitializer
 {
     private readonly ILogger<DbInitializer> _logger;
@@ -12,6 +15,10 @@ public sealed class DbInitializer
         this._logger = _logger;
     }
 
+    /// <summary>
+    /// Database initialization method
+    /// </summary>
+    /// <param name="context">Database context</param>
     public void Initialize(WebApiDbContext context)
     {
         var db = context.Database;
@@ -39,12 +46,17 @@ public sealed class DbInitializer
         _logger.LogInformation("Initialization DB done");
     }
 
+    /// <summary>
+    /// Database delete method
+    /// </summary>
+    /// <param name="context">Database context</param>
+    /// <returns>True if the database has been deleted successfully</returns>
     public bool DeInitialize(WebApiDbContext context)
     {
         var db = context.Database;
 
         if (!db.EnsureDeleted()) return false;
-        _logger.LogInformation("БД удалена");
+        _logger.LogInformation("DB deleted");
         return true;
     }
 }
